@@ -9,5 +9,9 @@ jobs:
       image: ghcr.io/dataoneorg/slinky:0.3.0
     steps:
     - uses: actions/checkout@v3
-    - run: python -m pip install .[test]
-    - run: python -m pytest
+    - name: pip install
+      working-directory: ./d1lod
+      run: python -m pip install .[test]
+    - name: pytest
+      working-directory: ./d1lod
+      run: python -m pytest
